@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Tasks -
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center lol">Todo Lists</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="input-group mb-3">
+            
+                {{task_form.title}}
+             
+
+                <button type="submit" class="btn btn-success"><img src="https://www.iconsdb.com/icons/preview/white/plus-xxl.png" class="knopka"></button>
+            </div>
+        </form>
+
+        <h4 class="bg-warning text-light py-2 rounded text-center tasks">Todo:</h4>
+
+        <ul class="list-group">
+            
+            {% for task in tasks %}
+                <li class="list-group-item list-group-item-action">
+                    
+                    {% if task.completed == True %}
+                    <strike>{{task.title}} </strike>
+                    {% else %}
+                    {{ task.title }}
+                    {% endif %}
+
+                    <div class="float-right">
+                        <a href="{% url "update_task" task.id %}" class="btn btn-info"><img src="https://www.iconsdb.com/icons/preview/white/edit-property-xxl.png" class="knopka_upd"></a>
+                        <a href="{% url "delete_task" task.id %}" class="btn btn-danger"><img src="https://www.iconsdb.com/icons/preview/white/delete-xxl.png" class="knopka_del"></a>
+                    </div>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="table_user">
+        {% if request.user.is_authenticated %}
+            <button class="btn btn-primary">{{ request.user.username }}</button>
+            
+            <a class="btn btn-secondary" href="{% url 'log-out' %}">Logout</a>
+                
+          
+        {% else %}
+          
+            <a class="btn btn-primary" href="{% url 'log-in' %}">Login</a>
+            <a class="btn btn-primary" href="{% url 'sign-up' %}">Signup</a>
+        
+        {% endif %} 
+    </div>
+</div>
+
+{% endblock content %}

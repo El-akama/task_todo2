@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update Task -
+{% endblock title %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">Todo Lists</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="input-group mb-3">
+                <div class="input-group-text galochka" data-toggle="tooltip" data-placement="bottom" title="Marked as completed">
+                    {{ task_edit_form.completed }}
+                </div>
+                {{ task_edit_form.title }}
+                <button type="submit" class="btn btn-lg btn-info"><img src="https://www.iconsdb.com/icons/preview/white/edit-property-xxl.png" class="knopka_upd"></button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock content %}

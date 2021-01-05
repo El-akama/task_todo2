@@ -1,0 +1,62 @@
+
+body{
+    background-color: #638CB8;
+
+}
+.container{
+    max-width: 600px;
+}
+
+.card {
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+.lol {
+    margin-top: 5px;
+}
+
+.knopka, .knopka_del, .knopka_upd {
+    width: 20px;
+}
+
+.list-group, .form-control-lg {
+    border-radius: 15px;
+}
+
+
+.btn-success {
+    border-radius: 15px;
+}
+
+.galochka {
+    border-radius: 15px;
+}
+
+.tasks {
+    background-color: rgb(160, 160, 160);
+}
+
+.signup {
+    background-color: #906abd;
+    padding: 15px;
+    border-radius: 15px;
+
+}
+
+.signup-header {
+    margin-bottom: 15px;
+}
+
+.knopka_up {
+    padding: 5px 202px;
+}
+
+.knopka_in {
+    padding: 5px 246px;
+}
+
+.table_user {
+    align-self: center;
+    padding-bottom: 20px;
+}
